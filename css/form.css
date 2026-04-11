@@ -22,6 +22,7 @@ form {
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
+  width: 20rem;
 }
 
 .formTitle {
@@ -42,6 +43,11 @@ form {
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0 0.5rem;
+  }
+
+  form {
+    padding: 0.5rem;
+    width: 15rem;
   }
 }
 

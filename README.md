@@ -1,4 +1,4 @@
-# 💡 Interactive Lamp Login System
+# Interactive Lamp Login System
 
 An interactive and modern authentication UI where a lamp animation controls the visibility of the login card.  
 When the lamp is turned **ON**, the login/signup forms reveal with smooth transitions.  
@@ -6,7 +6,7 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Lamp Toggle Animation** to reveal/hide login content
 - **Login Form** with custom floating input fields
@@ -19,7 +19,7 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML**
 - **CSS**
@@ -28,7 +28,7 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
 
 ---
 
-## 📸 Preview
+## Preview
 
 <p align="center">
   <img src="Preview/Preview1.png" width="45%" />
@@ -38,10 +38,13 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
   <img src="Preview/Preview3.png" width="45%" />
   <img src="Preview/Preview4.png" width="45%" />
 </p>
+<p align="center">
+  <img src="Preview/Preview5.png" width="45%" />
+</p>
 
 ---
 
-### ⭐ **Form Switch**
+### **Form Switch**
 
 - Login → Signup
 - Signup → Login

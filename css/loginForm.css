@@ -45,7 +45,7 @@ input[type="checkbox"] {
 }
 
 .rememberForgotContainer {
-  width: 21.875rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -101,7 +101,7 @@ input[type="checkbox"] {
 
   .rememberForgotContainer {
     display: flex;
-    width: 15.625rem;
+    width: 100%;
     justify-content: space-between;
   }
 
@@ -167,7 +167,7 @@ input[type="checkbox"] {
 
   .rememberForgotContainer {
     display: flex;
-    width: 18.75rem;
+    width: 100%;
     justify-content: space-between;
   }
 
@@ -197,4 +197,8 @@ input[type="checkbox"] {
     font-size: 1rem;
     color: #fdd133;
   }
+}
+
+#loginPage {
+  display: none;
 }

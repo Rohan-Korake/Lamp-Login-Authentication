@@ -19,10 +19,6 @@
   text-align: center;
 }
 
-/* #loginPage {
-  display: none;
-} */
-
 .auth-option {
   display: flex;
   flex-direction: row;
