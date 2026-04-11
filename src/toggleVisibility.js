@@ -23,3 +23,11 @@ export function hideComponent(component) {
     domComponent.style.display = "none";
   }
 }
+
+export function showError(element, message) {
+  document.getElementById(element).innerText = message;
+}
+
+export function hideError(element) {
+  document.getElementById(element).innerText = "";
+}

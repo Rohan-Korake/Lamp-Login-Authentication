@@ -30,7 +30,7 @@ form {
   font-family: "Poppins", sans-serif;
   color: #bbbaba;
   font-weight: 500;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
 }
 
 @media (max-width: 600px) {

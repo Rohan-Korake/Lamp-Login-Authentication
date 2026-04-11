@@ -1,4 +1,4 @@
-import { toggleSwitch } from "./toggleSwitch.js";
+import { resetInputs } from "./resetInputs.js";
 import { hideElement, showElement, hideComponent } from "./toggleVisibility.js";
 
 export function formToggle() {
@@ -13,6 +13,7 @@ export function formToggle() {
 
   // Display the forgot password card and hide log in form
   forgotPasswordLink.addEventListener("click", function () {
+    resetInputs();
     hideElement("loginForm");
     hideComponent("signUpForm");
     hideElement("cancelButton");
@@ -22,6 +23,7 @@ export function formToggle() {
 
   // Hide the forgot password card and display log in form
   document.getElementById("backToLoginButton").addEventListener("click", () => {
+    resetInputs();
     hideElement("forgotPasswordForm");
     hideComponent("signUpForm");
     showElement("loginForm");
@@ -29,6 +31,7 @@ export function formToggle() {
 
   //Show signup form and hide other form
   document.getElementById("singUplink").addEventListener("click", () => {
+    resetInputs();
     hideElement("loginForm");
     showElement("signUpForm");
     hideComponent("forgotPasswordForm");
@@ -36,6 +39,7 @@ export function formToggle() {
 
   //Show login form hide other form
   document.getElementById("loginFormLink").addEventListener("click", () => {
+    resetInputs();
     hideElement("forgotPasswordForm");
     hideComponent("signUpForm");
     showElement("loginForm");
@@ -43,6 +47,7 @@ export function formToggle() {
 
   //show reset password form and hide welcome page
   document.getElementById("changePassword").addEventListener("click", () => {
+    resetInputs();
     hideElement("welcomePage");
     hideComponent("loginForm");
     hideComponent("backToLoginButton");
@@ -54,6 +59,7 @@ export function formToggle() {
 
   // show welcome page and hide reset password form
   document.getElementById("cancelButton").addEventListener("click", () => {
+    resetInputs();
     hideElement("forgotPasswordForm");
     hideElement("loginPage");
     showElement("welcomePage");

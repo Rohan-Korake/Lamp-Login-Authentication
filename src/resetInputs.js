@@ -1,5 +1,9 @@
 export function resetInputs() {
-  document.getElementById("loginForm").reset;
-  document.getElementById("signUpForm").reset;
-  document.getElementById("forgotPasswordForm").reset;
+  const loginForm = document.getElementById("loginForm");
+  const signUpForm = document.getElementById("signUpForm");
+  const forgotPasswordForm = document.getElementById("forgotPasswordForm");
+
+  loginForm && loginForm.reset();
+  signUpForm && signUpForm.reset();
+  forgotPasswordForm && forgotPasswordForm.reset();
 }

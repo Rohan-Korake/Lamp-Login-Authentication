@@ -16,3 +16,13 @@ function initialElement() {
   hideComponent("welcomePage");
   showElement("loginPage");
 }
+
+export function showLoader() {
+  document.getElementById("loadingPage").style.display = "flex";
+  document.querySelector(".loader").classList.add("active");
+}
+
+export function hideLoader() {
+  document.getElementById("loadingPage").style.display = "none";
+  document.querySelector(".loader").classList.remove("active");
+}

@@ -22,27 +22,8 @@ body {
   flex-direction: row;
 }
 
-@media (max-width: 600px) {
-  .outerContainer {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .field-error {
-    color: red;
-    font-size: 0.7rem;
-  }
-}
-
 #cancelButton {
   display: none;
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  .outerContainer {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
 }
 
 @keyframes showAnimation {
@@ -60,5 +41,73 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+#loadingPage {
+  display: none;
+}
+
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.774);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  z-index: 10;
+  color: rgb(195, 196, 197);
+  font-size: 1.5rem;
+}
+
+.loader img {
+  width: 3rem;
+}
+
+.loader.active img {
+  animation: spin 1s linear infinite;
+}
+
+.loading-message {
+  font-size: 1.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .outerContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .outerContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .field-error {
+    color: red;
+    font-size: 0.7rem;
+  }
+
+  .loader img {
+    width: 2.5rem;
+  }
+
+  .loading-message {
+    font-size: 1rem;
   }
 }

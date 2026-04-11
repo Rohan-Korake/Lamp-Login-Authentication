@@ -10,13 +10,16 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
   </head>
 
   <body>
+    <!-- login Page  -->
     <div class="outerContainer" id="loginPage">
       <!-- lamp container  -->
       <div class="lampOuterContainer">
@@ -58,7 +61,7 @@
             <div class="formTitle">User Login</div>
             <div class="form-error" id="loginFormError"></div>
             <div class="inputField">
-              <input type="text" id="username" autocomplete="off" required />
+              <input type="email" id="userName" autocomplete="off" required />
               <label id="usernameLabel">username</label>
               <div class="field-error" id="usernameError"></div>
             </div>
@@ -81,8 +84,9 @@
                 Forgot password?
               </div>
             </div>
-            <div class="form-button" id="loginButton">Log in</div>
-
+            <button class="form-button" id="loginButton" type="submit">
+              Log in
+            </button>
             <div class="signUpOption">
               <div class="signUpText">Don’t have account?</div>
               <div class="singUplink" id="singUplink">Sign Up</div>
@@ -160,6 +164,7 @@
         </div>
       </div>
     </div>
+
     <!-- Welcome Page  -->
     <div class="welcome-page" id="welcomePage">
       <div class="success-message">
@@ -169,6 +174,12 @@
         <div class="auth-button" id="changePassword">Change Password</div>
         <div class="auth-button" id="logoutUser">Logout User</div>
       </div>
+    </div>
+
+    <!-- loading page  -->
+    <div class="loading-page" id="loadingPage">
+      <div class="loader"><img src="./assets/loader.png" alt="loder" /></div>
+      <div class="loading-message">Please wait...</div>
     </div>
   </body>
   <script src="src/main.js" type="module"></script>
