@@ -15,11 +15,6 @@ export function userLogin() {
     const userName = document.getElementById("userName").value;
     const password = document.getElementById("password").value;
 
-    if (!userName || !password) {
-      showError("loginFormError", "All fields are required");
-      return;
-    }
-
     try {
       const response = await fetch(
         "https://authentication-service-vdxw.onrender.com/auth/login",
@@ -44,6 +39,8 @@ export function userLogin() {
         case 400:
         case 401:
         case 403:
+          showError("loginFormError", body.message);
+          break;
         case 500:
           showError("loginFormError", body.message);
           break;
@@ -59,7 +56,7 @@ export function userLogin() {
       }
     } catch (error) {
       hideLoader();
-      showError("loginFormError", "Network error");
+      showError("loginFormError", "No internet connection");
     }
   });
 }
