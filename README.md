@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/favicon.svg" width="5%" />
+  <img src="assets/favicon.svg" width="10%" />
 </p>
 
 # Interactive Lamp Login System
@@ -35,6 +35,7 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
 ## Authentication Module
 
 - User Login
+- Sign Up
 
 ## Preview
 
