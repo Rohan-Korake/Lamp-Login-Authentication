@@ -11,8 +11,14 @@ export function userLogin() {
   document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     showLoader();
+    hideError("loginFormError");
     const userName = document.getElementById("userName").value;
     const password = document.getElementById("password").value;
+
+    if (!userName || !password) {
+      showError("loginFormError", "All fields are required");
+      return;
+    }
 
     try {
       const response = await fetch(

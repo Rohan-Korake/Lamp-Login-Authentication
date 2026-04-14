@@ -11,7 +11,6 @@ export function toggleSwitch() {
 let isLampOn = false;
 export function toggleState() {
   isLampOn = !isLampOn;
-
   const btnSurface = document.getElementById("btnSurface");
   const glowState = document.getElementById("glowState");
   const unlitState = document.getElementById("unlitState");
