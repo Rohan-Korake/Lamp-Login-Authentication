@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/favicon.svg" width="5%" />
+</p>
+
 # Interactive Lamp Login System
 
 An interactive and modern authentication UI where a lamp animation controls the visibility of the login card.  
