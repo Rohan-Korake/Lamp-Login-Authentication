@@ -1,4 +1,4 @@
-import { showError, hideError } from './toggleVisibility.js';
+import { showError, hideError, hideElement } from './toggleVisibility.js';
 import { showLoader, hideLoader } from './main.js';
 
 export function signUp() {
@@ -21,19 +21,22 @@ export function signUp() {
       } else {
         hideError('confirmPasswordError');
       }
-      const hasUpperCase = /[A-Z]/.test(confirmPassword);
-      const hasLowerCase = /[a-z]/.test(confirmPassword);
-      const hasNumber = /[0-9]/.test(confirmPassword);
-      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(confirmPassword);
 
-      if (confirmPassword.length < 8 || confirmPassword.length > 32) {
-        showError('confirmPasswordError', 'Password must be 8–32 characters');
-        return;
-      } else if (!hasUpperCase) {
-        showError('confirmPasswordError', 'Must contain an uppercase letter');
-        return;
-      } else if (!hasUpperCase) {
-        showError('confirmPasswordError', 'Must contain an uppercase letter');
+      let missingRequirements = [];
+      if (confirmPassword.length < 8 || confirmPassword.length > 32)
+        missingRequirements.push('8–32 characters');
+      if (!/[A-Z]/.test(confirmPassword)) missingRequirements.push('uppercase');
+      if (!/[a-z]/.test(confirmPassword)) missingRequirements.push('lowercase');
+      if (!/[0-9]/.test(confirmPassword)) missingRequirements.push('number');
+      if (!/[!@#$%^&*(),.?\":{}|<>]/.test(confirmPassword))
+        missingRequirements.push('symbol');
+
+      if (missingRequirements.length > 0) {
+        hideLoader();
+        showError(
+          'confirmPasswordError',
+          `Password must include ${missingRequirements.join(' , ')}.`
+        );
         return;
       }
 
@@ -62,7 +65,7 @@ export function signUp() {
           case 400:
             showError(
               'confirmPasswordError',
-              'Password must be 8–32 chars with uppercase, lowercase, number & special character'
+              'Invalid input. Please try again'
             );
             break;
 

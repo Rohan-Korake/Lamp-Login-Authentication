@@ -1,5 +1,4 @@
 import { resetInputs } from './resetInputs.js';
-import { hideLoader } from './main.js';
 
 export function hideElement(element) {
   let domElement = document.getElementById(element);
@@ -28,7 +27,6 @@ export function hideComponent(component) {
 
 export function showError(element, message) {
   document.getElementById(element).innerText = message;
-  hideLoader();
 }
 
 export function hideError(element) {
