@@ -14,7 +14,7 @@
 <body>
 
   <!-- login Page  -->
-  <div class="outerContainer" id="loginPage">
+  <div class="outerContainer" id="authPage">
     <!-- lamp container  -->
     <div class="lampOuterContainer">
       <div class="lampInnerContainer">
@@ -42,6 +42,7 @@
     <!-- form container  -->
     <div class="formOuterContainer" id="formContainer">
       <div class="formInnerContainer">
+
         <!-- login form  -->
         <form id="loginForm">
           <div class="formTitle">User Login</div>
@@ -77,29 +78,44 @@
         </form>
 
         <!-- forgot password form  -->
-        <div class="forgotPassOuterContainer">
-          <form id="forgotPasswordForm">
-            <div class="formTitle">Forgot Password</div>
-            <div class="form-error" id="forgotPasswordFormError"></div>
-            <div class="form-success" id="forgotPasswordFormsuccess"></div>
-            <div class="inputField">
-              <input type="email" id="registeredEmail" autocomplete="off" required />
-              <label id="registeredEmailLabel">Registered email</label>
-              <i class="fa-solid fa-user user-icon"></i>
-              <div class="field-error" id="registerEmail"></div>
-            </div>
-            <button class="form-button" type="submit">Reset Password</button>
-            <button class="form-button" id="cancelButton" type="submit">Cancel</button>
-            <button class="form-button" id="backToLoginButton">
-              <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back to log in
-            </button>
-          </form>
-        </div>
+        <form id="forgotPasswordForm">
+          <div class="formTitle">Forgot Password</div>
+          <div class="form-error" id="forgotPasswordFormError"></div>
+          <div class="form-success" id="forgotPasswordFormSuccess"></div>
+          <div class="inputField">
+            <input type="email" id="registeredEmail" autocomplete="off" required />
+            <label id="registeredEmailLabel">Registered email</label>
+            <i class="fa-solid fa-user user-icon"></i>
+            <div class="field-error" id="registerEmail"></div>
+          </div>
+          <button class="form-button" type="submit">Reset Password</button>
+          <button class="form-button" id="backToLoginButton">
+            <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back to log in
+          </button>
+        </form>
+
+
+        <!-- Change password form  -->
+        <form id="changePasswordForm">
+          <div class="formTitle">Change Password</div>
+          <div class="form-error" id="changePasswordFormError"></div>
+          <div class="form-success" id="changePasswordFormSuccess"></div>
+          <div class="inputField">
+            <input type="email" id="userMailId" autocomplete="off" required />
+            <label id="registeredEmailLabel">Registered email</label>
+            <i class="fa-solid fa-user user-icon"></i>
+            <div class="field-error" id="userEmail"></div>
+          </div>
+          <button class="form-button" type="submit">Change Password</button>
+          <button class="form-button" id="cancelButton">Cancel</button>
+        </form>
+
 
         <!-- create account form  -->
         <form id="signUpForm">
           <div class="formTitle">Create Account</div>
           <div class="form-error" id="signUpFormError"></div>
+          <div class="form-success" id="signUpFormSuccess"></div>
           <div class="inputFieldContainer">
             <div class="firstName">
               <input type="text" id="firstName" autocomplete="off" required />

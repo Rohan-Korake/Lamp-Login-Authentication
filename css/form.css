@@ -66,3 +66,7 @@ form {
 .form-button i {
   width: 20px;
 }
+
+#changePasswordForm {
+  display: none;
+}

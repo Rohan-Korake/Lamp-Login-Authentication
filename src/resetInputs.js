@@ -1,8 +1,8 @@
-import { hideInfoFields } from './handleVisibility.js';
+import { hideInfoFields } from "./handleVisibility.js";
 export function resetInputs() {
-  const loginForm = document.getElementById('loginForm');
-  const signUpForm = document.getElementById('signUpForm');
-  const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+  const loginForm = document.getElementById("loginForm");
+  const signUpForm = document.getElementById("signUpForm");
+  const forgotPasswordForm = document.getElementById("forgotPasswordForm");
 
   loginForm && loginForm.reset();
   signUpForm && signUpForm.reset();

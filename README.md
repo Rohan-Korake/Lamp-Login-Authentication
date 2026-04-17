@@ -32,11 +32,6 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
 
 ---
 
-## Authentication Module
-
-- User Login
-- Sign Up
-
 ## Preview
 
 <p align="center">
@@ -49,16 +44,5 @@ The project includes **Login, Signup, and Forgot Password** sections — all wit
 </p>
 <p align="center">
   <img src="Preview/Preview5.png" width="45%" />
+  <img src="Preview/Preview6.png" width="45%" />
 </p>
-
----
-
-### **Form Switch**
-
-- Login → Signup
-- Signup → Login
-- Forgot Password → Login
-
-All form transitions are handled using JS.
-
----

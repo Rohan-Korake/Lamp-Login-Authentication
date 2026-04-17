@@ -2,7 +2,7 @@ import {
   showError,
   hideError,
   hideElement,
-  hideInfoFields,
+  showSuccess,
 } from './handleVisibility.js';
 import { showLoader, hideLoader } from './main.js';
 
@@ -11,7 +11,7 @@ export function signUp() {
     .getElementById('signUpForm')
     .addEventListener('submit', async (e) => {
       e.preventDefault();
-      hideInfoFields();
+
       showLoader();
       hideError('signUpFormError');
       const firstName = document.getElementById('firstName').value;
@@ -93,8 +93,10 @@ export function signUp() {
 
           case 200:
             hideError('signUpFormError');
-            hideElement('signUpForm');
-            showElement('loginPage');
+            showSuccess(
+              'signUpFormSuccess',
+              'User Registered. Verification email sent. Please verify.'
+            );
             break;
 
           default:

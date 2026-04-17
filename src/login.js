@@ -3,35 +3,33 @@ import {
   showElement,
   hideError,
   showError,
-  hideInfoFields,
-} from './handleVisibility.js';
+} from "./handleVisibility.js";
 
-import { showLoader, hideLoader } from './main.js';
+import { showLoader, hideLoader } from "./main.js";
 
 export function userLogin() {
-  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    hideInfoFields();
     showLoader();
-    const rememberMe = document.getElementById('rememberMe');
+    const rememberMe = document.getElementById("rememberMe");
 
-    hideError('loginFormError');
-    const userName = document.getElementById('userName').value;
-    const password = document.getElementById('password').value;
+    hideError("loginFormError");
+    const userName = document.getElementById("userName").value;
+    const password = document.getElementById("password").value;
 
     try {
       const response = await fetch(
-        'https://authentication-service-vdxw.onrender.com/auth/login',
+        "https://authentication-service-vdxw.onrender.com/auth/login",
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             email: userName,
             password: password,
           }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -41,41 +39,41 @@ export function userLogin() {
 
       switch (status) {
         case 400:
-          showError('loginFormError', body.message || 'Invalid input');
+          showError("loginFormError", body.message || "Invalid input");
           break;
 
         case 401:
           showError(
-            'loginFormError',
-            body.message || 'Invalid email or password'
+            "loginFormError",
+            body.message || "Invalid email or password",
           );
           break;
 
         case 403:
-          showError('loginFormError', 'Verification email sent. Please verify');
+          showError("loginFormError", "Verification email sent. Please verify");
           break;
 
         case 500:
-          showError('loginFormError', body.message);
+          showError("loginFormError", body.message);
           break;
 
         case 200:
-          hideError('loginFormError');
-          hideElement('loginPage');
-          showElement('welcomePage');
+          hideError("loginFormError");
+          hideElement("authPage");
+          showElement("welcomePage");
           break;
 
         default:
-          showError('loginFormError', 'Unexpected error');
+          showError("loginFormError", "Unexpected error");
       }
     } catch (error) {
       hideLoader();
       if (!navigator.onLine) {
-        showError('loginFormError', 'No internet connection');
+        showError("loginFormError", "No internet connection");
       } else {
         showError(
-          'loginFormError',
-          'Server unavailable. Please try again later.'
+          "loginFormError",
+          "Server unavailable. Please try again later.",
         );
       }
     }
