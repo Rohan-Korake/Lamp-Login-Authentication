@@ -1,4 +1,9 @@
-import { showError, hideError, hideElement } from './toggleVisibility.js';
+import {
+  showError,
+  hideError,
+  hideElement,
+  hideInfoFields,
+} from './handleVisibility.js';
 import { showLoader, hideLoader } from './main.js';
 
 export function signUp() {
@@ -6,6 +11,7 @@ export function signUp() {
     .getElementById('signUpForm')
     .addEventListener('submit', async (e) => {
       e.preventDefault();
+      hideInfoFields();
       showLoader();
       hideError('signUpFormError');
       const firstName = document.getElementById('firstName').value;

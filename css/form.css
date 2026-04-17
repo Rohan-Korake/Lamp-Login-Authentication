@@ -1,10 +1,15 @@
 .field-error,
-.form-error {
+.form-error,
+.form-success {
   width: 100%;
-  color: rgb(235, 74, 74);
   font-size: 0.9rem;
-  display: flex;
   align-items: center;
+  display: none;
+}
+
+.field-error,
+.form-error {
+  color: rgb(235, 74, 74);
 }
 
 .field-error {
@@ -12,9 +17,14 @@
   margin-top: 0.5rem;
 }
 
-.form-error {
+.form-error,
+.form-success {
   justify-content: center;
   text-align: center;
+}
+
+.form-success {
+  color: rgb(43, 225, 100);
 }
 
 form {
@@ -32,7 +42,6 @@ form {
   font-family: 'Poppins', sans-serif;
   color: #bbbaba;
   font-weight: 500;
-  margin: 0 0.5rem;
 }
 
 @media (max-width: 600px) {

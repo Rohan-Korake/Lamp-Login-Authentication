@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -81,17 +81,18 @@
           <form id="forgotPasswordForm">
             <div class="formTitle">Forgot Password</div>
             <div class="form-error" id="forgotPasswordFormError"></div>
+            <div class="form-success" id="forgotPasswordFormsuccess"></div>
             <div class="inputField">
-              <input type="text" id="username" autocomplete="off" required />
+              <input type="email" id="registeredEmail" autocomplete="off" required />
               <label id="registeredEmailLabel">Registered email</label>
               <i class="fa-solid fa-user user-icon"></i>
               <div class="field-error" id="registerEmail"></div>
             </div>
-            <div class="form-button">Reset Password</div>
-            <div class="form-button" id="cancelButton">Cancel</div>
-            <div class="form-button" id="backToLoginButton">
+            <button class="form-button" type="submit">Reset Password</button>
+            <button class="form-button" id="cancelButton" type="submit">Cancel</button>
+            <button class="form-button" id="backToLoginButton">
               <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back to log in
-            </div>
+            </button>
           </form>
         </div>
 

@@ -3,13 +3,15 @@ import {
   showElement,
   hideError,
   showError,
-} from './toggleVisibility.js';
+  hideInfoFields,
+} from './handleVisibility.js';
 
 import { showLoader, hideLoader } from './main.js';
 
 export function userLogin() {
   document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    hideInfoFields();
     showLoader();
     const rememberMe = document.getElementById('rememberMe');
 
@@ -58,8 +60,6 @@ export function userLogin() {
           break;
 
         case 200:
-          console.log(body);
-
           hideError('loginFormError');
           hideElement('loginPage');
           showElement('welcomePage');

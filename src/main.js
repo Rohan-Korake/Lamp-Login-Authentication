@@ -3,7 +3,8 @@ import { toggleSwitch } from './toggleSwitch.js';
 import { formToggle } from './formToggle.js';
 import { userLogin } from './login.js';
 import { signUp } from './signUp.js';
-import { hideComponent, showElement } from './toggleVisibility.js';
+import { forgotPass } from './forgotPass.js';
+import { hideComponent, showElement } from './handleVisibility.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   initialElement();
@@ -12,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
   formToggle();
   userLogin();
   signUp();
+  forgotPass();
 });
 
 function initialElement() {
