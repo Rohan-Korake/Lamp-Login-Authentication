@@ -70,8 +70,17 @@ export function signUp() {
             break;
 
           case 401:
+            showError('signUpFormError', body.message || 'Unauthorized');
+            break;
+
           case 403:
+            showError('signUpFormError', body.message || 'Access denied');
+            break;
+
           case 409:
+            showError('newEmailError', 'This email is already registered');
+            break;
+
           case 500:
             showError('signUpFormError', body.message);
             break;

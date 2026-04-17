@@ -11,6 +11,7 @@ export function userLogin() {
   document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     showLoader();
+    const rememberMe = document.getElementById('rememberMe');
 
     hideError('loginFormError');
     const userName = document.getElementById('userName').value;
@@ -38,7 +39,16 @@ export function userLogin() {
 
       switch (status) {
         case 400:
+          showError('loginFormError', body.message || 'Invalid input');
+          break;
+
         case 401:
+          showError(
+            'loginFormError',
+            body.message || 'Invalid email or password'
+          );
+          break;
+
         case 403:
           showError('loginFormError', 'Verification email sent. Please verify');
           break;
@@ -48,6 +58,8 @@ export function userLogin() {
           break;
 
         case 200:
+          console.log(body);
+
           hideError('loginFormError');
           hideElement('loginPage');
           showElement('welcomePage');
