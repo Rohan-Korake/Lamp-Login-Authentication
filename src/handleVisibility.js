@@ -47,15 +47,22 @@ export function hideInfoFields() {
   document.getElementById("loginFormError").style.display = "none";
   document.getElementById("forgotPasswordFormError").style.display = "none";
   document.getElementById("signUpFormError").style.display = "none";
+  document.getElementById("logOutError").style.display = "none";
 
-  const formerror = document.querySelectorAll(".field-error");
-  formerror.forEach((element) => {
+  const fieldError = document.querySelectorAll(".field-error");
+  fieldError.forEach((element) => {
     element.innerText = "";
     element.style.display = "none";
   });
 
-  const formsuccess = document.querySelectorAll(".form-success");
-  formsuccess.forEach((element) => {
+  const formError = document.querySelectorAll(".form-error");
+  formError.forEach((element) => {
+    element.innerText = "";
+    element.style.display = "none";
+  });
+
+  const formSuccess = document.querySelectorAll(".form-success");
+  formSuccess.forEach((element) => {
     element.innerText = "";
     element.style.display = "none";
   });

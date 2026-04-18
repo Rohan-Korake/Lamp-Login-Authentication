@@ -1,4 +1,4 @@
-import { showError } from "./handleVisibility.js";
+import { hideElement, showElement, showError } from "./handleVisibility.js";
 import { hideLoader, showLoader } from "./main.js";
 
 export function logout() {
@@ -19,12 +19,14 @@ export function logout() {
 
       switch (status) {
         case 401:
-          showError("logOutError", body.message);
-          break;
-
         case 200:
           hideElement("welcomePage");
           showElement("authPage");
+          showElement("loginForm");
+          break;
+
+        default:
+          showError("logOutError", body.message || "Logout failed");
           break;
       }
     } catch (error) {

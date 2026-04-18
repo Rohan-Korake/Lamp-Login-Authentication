@@ -25,6 +25,7 @@ export function userLogin() {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({
             email: userName,
             password: password,

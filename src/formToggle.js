@@ -51,14 +51,13 @@ export function formToggle() {
     hideElement("welcomePage");
     hideElement("loginForm");
     showElement("authPage");
-    showElement("formContainer");
     showElement("changePasswordForm");
   });
 
   // show welcome page and hide change password form
   document.getElementById("backToHomeButton").addEventListener("click", () => {
     resetInputs();
-    hideElement("forgotPasswordForm");
+    hideElement("changePasswordForm");
     hideElement("authPage");
     showElement("welcomePage");
   });
