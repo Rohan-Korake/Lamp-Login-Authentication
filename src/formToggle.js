@@ -55,8 +55,8 @@ export function formToggle() {
     showElement("changePasswordForm");
   });
 
-  // show welcome page and hide reset password form
-  document.getElementById("cancelButton").addEventListener("click", () => {
+  // show welcome page and hide change password form
+  document.getElementById("backToHomeButton").addEventListener("click", () => {
     resetInputs();
     hideElement("forgotPasswordForm");
     hideElement("authPage");

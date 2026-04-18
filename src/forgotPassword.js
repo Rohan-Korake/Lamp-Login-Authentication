@@ -12,7 +12,6 @@ export function forgotPass() {
       e.preventDefault();
       hideInfoFields();
       showLoader();
-      hideError("changePasswordForm");
       const registeredEmail = document.getElementById("registeredEmail").value;
 
       try {

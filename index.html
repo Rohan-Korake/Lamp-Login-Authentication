@@ -48,13 +48,13 @@
           <div class="formTitle">User Login</div>
           <div class="form-error" id="loginFormError"></div>
           <div class="inputField">
-            <input type="email" id="userName" autocomplete="off" required />
+            <input type="email" id="userName" required />
             <label id="usernameLabel">username</label>
             <i class="fa-solid fa-user user-icon"></i>
             <div class="field-error" id="usernameError"></div>
           </div>
           <div class="inputField">
-            <input type="password" id="password" autocomplete="off" required />
+            <input type="password" id="password" required />
             <label id="passwordLabel">Password</label>
             <i class="fa-solid fa-eye toggle-eye" role="button" data-target="password"></i>
             <div class="field-error" id="passwordError"></div>
@@ -83,7 +83,7 @@
           <div class="form-error" id="forgotPasswordFormError"></div>
           <div class="form-success" id="forgotPasswordFormSuccess"></div>
           <div class="inputField">
-            <input type="email" id="registeredEmail" autocomplete="off" required />
+            <input type="email" id="registeredEmail" required />
             <label id="registeredEmailLabel">Registered email</label>
             <i class="fa-solid fa-user user-icon"></i>
             <div class="field-error" id="registerEmail"></div>
@@ -94,22 +94,20 @@
           </button>
         </form>
 
-
         <!-- Change password form  -->
         <form id="changePasswordForm">
           <div class="formTitle">Change Password</div>
           <div class="form-error" id="changePasswordFormError"></div>
           <div class="form-success" id="changePasswordFormSuccess"></div>
           <div class="inputField">
-            <input type="email" id="userMailId" autocomplete="off" required />
+            <input type="email" id="userMailId" required />
             <label id="registeredEmailLabel">Registered email</label>
             <i class="fa-solid fa-user user-icon"></i>
             <div class="field-error" id="userEmail"></div>
           </div>
           <button class="form-button" type="submit">Change Password</button>
-          <button class="form-button" id="cancelButton">Cancel</button>
+          <button class="form-button" id="backToHomeButton">Back To Home</button>
         </form>
-
 
         <!-- create account form  -->
         <form id="signUpForm">
@@ -118,29 +116,29 @@
           <div class="form-success" id="signUpFormSuccess"></div>
           <div class="inputFieldContainer">
             <div class="firstName">
-              <input type="text" id="firstName" autocomplete="off" required />
+              <input type="text" id="firstName" required />
               <label id="firstNameLabel">First Name</label>
             </div>
             <div class="lastName">
-              <input type="text" id="lastName" autocomplete="off" required />
+              <input type="text" id="lastName" required />
               <label id="lastNameLabel">Last Name</label>
             </div>
           </div>
           <div class="inputField">
-            <input type="email" id="newEmail" autocomplete="off" required />
+            <input type="email" id="newEmail" required />
             <label id="EmailAddress">Email Address</label>
             <i class="fa-solid fa-user user-icon"></i>
             <div class="field-error" id="newEmailError"></div>
           </div>
           <div class="inputField">
-            <input type="password" id="newPassword" autocomplete="off" required />
+            <input type="password" id="newPassword" required />
             <label id="newPasswordLabel">Set Password</label>
             <i class="fa-solid fa-eye toggle-eye" role="button" data-target="newPassword"></i>
             <div class="field-error" id="setPasswordError"></div>
           </div>
 
           <div class="inputField">
-            <input type="password" id="confirmPassword" autocomplete="off" required />
+            <input type="password" id="confirmPassword" required />
             <label id="confirmNewPasswordLabel">Confirm Password</label>
             <i class="fa-solid fa-eye toggle-eye" role="button" data-target="confirmPassword"></i>
             <div class="field-error" id="confirmPasswordError"></div>
