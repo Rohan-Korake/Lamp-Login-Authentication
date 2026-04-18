@@ -5,6 +5,7 @@ import { userLogin } from "./login.js";
 import { signUp } from "./signUp.js";
 import { forgotPass } from "./forgotPassword.js";
 import { changePassword } from "./changePassword.js";
+import { logout } from "./logout.js";
 import { hideComponent, showElement } from "./handleVisibility.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -16,6 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
   signUp();
   forgotPass();
   changePassword();
+  logout();
 });
 
 function initialElement() {

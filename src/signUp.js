@@ -3,63 +3,64 @@ import {
   hideError,
   hideElement,
   showSuccess,
-} from './handleVisibility.js';
-import { showLoader, hideLoader } from './main.js';
+} from "./handleVisibility.js";
+import { resetInputs } from "./resetInputs.js";
+import { showLoader, hideLoader } from "./main.js";
 
 export function signUp() {
   document
-    .getElementById('signUpForm')
-    .addEventListener('submit', async (e) => {
+    .getElementById("signUpForm")
+    .addEventListener("submit", async (e) => {
       e.preventDefault();
 
       showLoader();
-      hideError('signUpFormError');
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const newEmail = document.getElementById('newEmail').value;
-      const newPassword = document.getElementById('newPassword').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
+      hideError("signUpFormError");
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const newEmail = document.getElementById("newEmail").value;
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
 
       if (newPassword != confirmPassword) {
-        showError('confirmPasswordError', 'Passwords do not match');
+        showError("confirmPasswordError", "Passwords do not match");
         hideLoader();
         return;
       } else {
-        hideError('confirmPasswordError');
+        hideError("confirmPasswordError");
       }
 
       let missingRequirements = [];
       if (confirmPassword.length < 8 || confirmPassword.length > 32)
-        missingRequirements.push('8–32 characters');
-      if (!/[A-Z]/.test(confirmPassword)) missingRequirements.push('uppercase');
-      if (!/[a-z]/.test(confirmPassword)) missingRequirements.push('lowercase');
-      if (!/[0-9]/.test(confirmPassword)) missingRequirements.push('number');
+        missingRequirements.push("8–32 characters");
+      if (!/[A-Z]/.test(confirmPassword)) missingRequirements.push("uppercase");
+      if (!/[a-z]/.test(confirmPassword)) missingRequirements.push("lowercase");
+      if (!/[0-9]/.test(confirmPassword)) missingRequirements.push("number");
       if (!/[!@#$%^&*(),.?\":{}|<>]/.test(confirmPassword))
-        missingRequirements.push('symbol');
+        missingRequirements.push("symbol");
 
       if (missingRequirements.length > 0) {
         hideLoader();
         showError(
-          'confirmPasswordError',
-          `Password must include ${missingRequirements.join(' , ')}.`
+          "confirmPasswordError",
+          `Password must include ${missingRequirements.join(" , ")}.`,
         );
         return;
       }
 
       try {
         const response = await fetch(
-          'https://authentication-service-vdxw.onrender.com/auth/register',
+          "https://authentication-service-vdxw.onrender.com/auth/register",
           {
-            method: 'POST',
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
               email: newEmail,
               password: confirmPassword,
               name: `${firstName.trim()} ${lastName.trim()}`,
             }),
-          }
+          },
         );
 
         const data = await response.json();
@@ -70,46 +71,47 @@ export function signUp() {
         switch (status) {
           case 400:
             showError(
-              'confirmPasswordError',
-              'Invalid input. Please try again'
+              "confirmPasswordError",
+              "Invalid input. Please try again",
             );
             break;
 
           case 401:
-            showError('signUpFormError', body.message || 'Unauthorized');
+            showError("signUpFormError", body.message || "Unauthorized");
             break;
 
           case 403:
-            showError('signUpFormError', body.message || 'Access denied');
+            showError("signUpFormError", body.message || "Access denied");
             break;
 
           case 409:
-            showError('newEmailError', 'This email is already registered');
+            showError("newEmailError", "This email is already registered");
             break;
 
           case 500:
-            showError('signUpFormError', body.message);
+            showError("signUpFormError", body.message);
             break;
 
           case 200:
-            hideError('signUpFormError');
+            resetInputs();
+            hideError("signUpFormError");
             showSuccess(
-              'signUpFormSuccess',
-              'User Registered. Verification email sent. Please verify.'
+              "signUpFormSuccess",
+              "User Registered. Verification email sent. Please verify.",
             );
             break;
 
           default:
-            showError('signUpFormError', 'Unexpected error');
+            showError("signUpFormError", "Unexpected error");
         }
       } catch (error) {
         hideLoader();
         if (!navigator.onLine) {
-          showError('loginFormError', 'No internet connection');
+          showError("loginFormError", "No internet connection");
         } else {
           showError(
-            'loginFormError',
-            'Server unavailable. Please try again later.'
+            "loginFormError",
+            "Server unavailable. Please try again later.",
           );
         }
       }

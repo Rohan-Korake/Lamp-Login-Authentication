@@ -8,7 +8,8 @@
 }
 
 .field-error,
-.form-error {
+.form-error,
+.operation-error {
   color: rgb(235, 74, 74);
 }
 
@@ -18,7 +19,8 @@
 }
 
 .form-error,
-.form-success {
+.form-success,
+.operation-error {
   justify-content: center;
   text-align: center;
 }
@@ -39,7 +41,7 @@ form {
 
 .formTitle {
   font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #bbbaba;
   font-weight: 500;
 }

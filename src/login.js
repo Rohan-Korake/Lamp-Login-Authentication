@@ -39,7 +39,7 @@ export function userLogin() {
 
       switch (status) {
         case 400:
-          showError("loginFormError", body.message || "Invalid input");
+          showError("loginFormError", "Invalid email or password");
           break;
 
         case 401:
