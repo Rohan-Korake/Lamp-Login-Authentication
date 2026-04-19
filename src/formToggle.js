@@ -2,7 +2,6 @@ import { resetInputs } from "./resetInputs.js";
 import { hideElement, showElement, hideComponent } from "./handleVisibility.js";
 
 export function formToggle() {
-  const forgotPasswordLink = document.getElementById("forgotPasswordLink");
   const forgotPasswordForm = document.getElementById("forgotPasswordForm");
 
   // Hide the forgot password card initially
@@ -12,14 +11,16 @@ export function formToggle() {
   }
 
   // Display the forgot password card and hide log in form
-  forgotPasswordLink.addEventListener("click", function () {
-    resetInputs();
-    hideElement("loginForm");
-    hideComponent("signUpForm");
-    hideElement("cancelButton");
-    showElement("backToLoginButton");
-    showElement("forgotPasswordForm");
-  });
+  document
+    .getElementById("forgotPasswordLink")
+    .addEventListener("click", () => {
+      resetInputs();
+      hideElement("loginForm");
+      hideComponent("signUpForm");
+      hideElement("cancelButton");
+      showElement("backToLoginButton");
+      showElement("forgotPasswordForm");
+    });
 
   // Hide the forgot password card and display log in form
   document.getElementById("backToLoginButton").addEventListener("click", () => {

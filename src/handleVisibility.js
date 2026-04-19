@@ -44,9 +44,6 @@ export function showSuccess(element, message) {
 }
 
 export function hideInfoFields() {
-  document.getElementById("loginFormError").style.display = "none";
-  document.getElementById("forgotPasswordFormError").style.display = "none";
-  document.getElementById("signUpFormError").style.display = "none";
   document.getElementById("logOutError").style.display = "none";
 
   const fieldError = document.querySelectorAll(".field-error");

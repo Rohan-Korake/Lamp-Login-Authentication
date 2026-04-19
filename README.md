@@ -39,6 +39,7 @@ Connected to a backend that enables account creation, login/logout, password res
 - Sign Up
 - Forgot Password
 - Change Password
+- Log out
 
 ---
 
