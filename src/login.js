@@ -57,7 +57,8 @@ export function userLogin() {
           break;
 
         case 500:
-          showError("loginFormError", body.message);
+          hideElement("authPage");
+          showElement("serverErrorContainer");
           break;
 
         case 200:
@@ -74,10 +75,8 @@ export function userLogin() {
       if (!navigator.onLine) {
         showError("loginFormError", "No internet connection");
       } else {
-        showError(
-          "loginFormError",
-          "Server unavailable. Please try again later.",
-        );
+        hideElement("authPage");
+        showElement("serverErrorContainer");
       }
     }
   });
@@ -132,6 +131,8 @@ async function handleGetMeRequest() {
         break;
 
       case 500:
+        hideElement("authPage");
+        showElement("serverErrorContainer");
         break;
 
       case 200:
@@ -180,7 +181,8 @@ async function updateAccessToken() {
         break;
 
       case 500:
-        console.error("Internal Server Error", body.message);
+        hideElement("authPage");
+        showElement("serverErrorContainer");
         break;
 
       case 200:

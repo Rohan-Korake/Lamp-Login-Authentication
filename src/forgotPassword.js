@@ -45,6 +45,11 @@ export function forgotPass() {
             );
             break;
 
+          case 500:
+            hideElement("authPage");
+            showElement("serverErrorContainer");
+            break;
+
           case 200:
             showSuccess(
               "forgotPasswordFormSuccess",
@@ -60,10 +65,8 @@ export function forgotPass() {
         if (!navigator.onLine) {
           showError("forgotPasswordFormError", "No internet connection");
         } else {
-          showError(
-            "forgotPasswordFormError",
-            "Server unavailable. Please try again later.",
-          );
+          hideElement("authPage");
+          showElement("serverErrorContainer");
         }
       }
     });

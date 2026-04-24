@@ -37,6 +37,11 @@ export function changePassword() {
             showError("changePasswordFormError", body.message);
             break;
 
+          case 500:
+            hideElement("authPage");
+            showElement("serverErrorContainer");
+            break;
+
           case 200:
             showSuccess(
               "changePasswordFormSuccess",
@@ -52,10 +57,8 @@ export function changePassword() {
         if (!navigator.onLine) {
           showError("changePasswordFormError", "No internet connection");
         } else {
-          showError(
-            "changePasswordFormError",
-            "Server unavailable. Please try again later.",
-          );
+          hideElement("authPage");
+          showElement("serverErrorContainer");
         }
       }
     });

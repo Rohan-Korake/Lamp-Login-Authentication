@@ -89,7 +89,8 @@ export function signUp() {
             break;
 
           case 500:
-            showError("signUpFormError", body.message);
+            hideElement("authPage");
+            showElement("serverErrorContainer");
             break;
 
           case 200:
@@ -109,10 +110,8 @@ export function signUp() {
         if (!navigator.onLine) {
           showError("loginFormError", "No internet connection");
         } else {
-          showError(
-            "loginFormError",
-            "Server unavailable. Please try again later.",
-          );
+          hideElement("authPage");
+          showElement("serverErrorContainer");
         }
       }
     });

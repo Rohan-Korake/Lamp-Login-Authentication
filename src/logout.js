@@ -28,6 +28,11 @@ export async function handleLogoutRequest() {
         showError("logOutError", body.message);
         break;
 
+      case 500:
+        hideElement("authPage");
+        showElement("serverErrorContainer");
+        break;
+
       case 200:
         await localStorage.removeItem("rememberMe");
         hideElement("welcomePage");
@@ -44,7 +49,8 @@ export async function handleLogoutRequest() {
     if (!navigator.onLine) {
       showError("logOutError", "No internet connection");
     } else {
-      showError("logOutError", "Server unavailable. Please try again later");
+      hideElement("authPage");
+      showElement("serverErrorContainer");
     }
   }
 }
