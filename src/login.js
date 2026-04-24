@@ -95,9 +95,13 @@ rememberMeCheckbox.addEventListener("change", (e) => {
 
 // call get me when reload
 window.addEventListener("DOMContentLoaded", async () => {
-  hideElement("authPage");
-  showLoader();
-  await handleGetMeRequest();
+  const remember = localStorage.getItem("rememberMe");
+  if (remember) {
+    hideElement("authPage");
+    hideElement("welcomePage");
+    showLoader();
+    await handleGetMeRequest();
+  }
 });
 
 let isTokenValid = false;
@@ -142,7 +146,7 @@ async function handleGetMeRequest() {
     }
   } catch (error) {
     if (!navigator.onLine) {
-      // showError("loginFormError", "No internet connection");
+      showError("loginFormError", "No internet connection");
     } else {
       hideLoader();
       hideElement("welcomePage");
@@ -191,7 +195,7 @@ async function updateAccessToken() {
   } catch (error) {
     hideLoader();
     if (!navigator.onLine) {
-      // showError("loginFormError", "No internet connection");
+      showError("loginFormError", "No internet connection");
     } else {
       console.error("Network or fetch error:", error);
       isTokenValid = false;

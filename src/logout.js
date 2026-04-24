@@ -51,9 +51,7 @@ export async function handleLogoutRequest() {
 
 window.addEventListener("DOMContentLoaded", async () => {
   showLoader();
-  const rememberMeCheckbox = document.getElementById("rememberMe");
   const remember = localStorage.getItem("rememberMe");
-
   if (!remember) {
     await handleLogoutRequest();
   }
