@@ -7,79 +7,85 @@ import {
 
 import { handleLogoutRequest } from "./logout.js";
 
-import { showLoader, hideLoader } from "./main.js";
+import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
 
 export function userLogin() {
   document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    showLoader();
-    const rememberMe = document.getElementById("rememberMe");
+    setCurrentRequest("login");
+    handleLoginRequest();
+  });
+}
 
-    hideError("loginFormError");
-    const userName = document.getElementById("userName").value;
-    const password = document.getElementById("password").value;
+export async function handleLoginRequest() {
+  showLoader();
+  hideError("loginFormError");
+  const userName = document.getElementById("userName").value;
+  const password = document.getElementById("password").value;
+  console.log("Hello rohan");
 
-    try {
-      const response = await fetch(
-        "https://authentication-service-vdxw.onrender.com/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            email: userName,
-            password: password,
-          }),
+  try {
+    const response = await fetch(
+      "https://authentication-service-vdxw.onrender.com/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        credentials: "include",
+        body: JSON.stringify({
+          email: userName,
+          password: password,
+        }),
+      },
+    );
 
-      const data = await response.json();
-      hideLoader();
-      const status = response.status;
-      const body = data;
+    const body = await response.json();
+    hideLoader();
+    const status = response.status;
 
-      switch (status) {
-        case 400:
-          showError("loginFormError", "Invalid email or password");
-          break;
+    switch (status) {
+      case 400:
+        showError("loginFormError", "Invalid email or password");
+        break;
 
-        case 401:
-          showError(
-            "loginFormError",
-            body.message || "Invalid email or password",
-          );
-          break;
+      case 401:
+        showError(
+          "loginFormError",
+          body.message || "Invalid email or password",
+        );
+        break;
 
-        case 403:
-          showError("loginFormError", "Verification email sent. Please verify");
-          break;
+      case 403:
+        showError("loginFormError", "Verification email sent. Please verify");
+        break;
 
-        case 500:
-          hideElement("authPage");
-          showElement("serverErrorContainer");
-          break;
-
-        case 200:
-          hideError("loginFormError");
-          hideElement("authPage");
-          showElement("welcomePage");
-          break;
-
-        default:
-          showError("loginFormError", "Unexpected error");
-      }
-    } catch (error) {
-      hideLoader();
-      if (!navigator.onLine) {
-        showError("loginFormError", "No internet connection");
-      } else {
+      case 500:
         hideElement("authPage");
         showElement("serverErrorContainer");
-      }
+        break;
+
+      case 200:
+        if (serverErrorContainer) {
+          hideElement("serverErrorContainer");
+        }
+        hideError("loginFormError");
+        hideElement("authPage");
+        showElement("welcomePage");
+        break;
+
+      default:
+        showError("loginFormError", "Unexpected error");
     }
-  });
+  } catch (error) {
+    hideLoader();
+    if (!navigator.onLine) {
+      showError("loginFormError", "No internet connection");
+    } else {
+      hideElement("authPage");
+      showElement("serverErrorContainer");
+    }
+  }
 }
 
 // handle checkbox state

@@ -1,14 +1,15 @@
 import { hideElement, showElement, showError } from "./handleVisibility.js";
-import { hideLoader, showLoader } from "./main.js";
+import { hideLoader, setCurrentRequest, showLoader } from "./main.js";
 
 export function logout() {
   document.getElementById("logoutUser").addEventListener("click", async () => {
-    showLoader();
+    setCurrentRequest("logout");
     await handleLogoutRequest();
   });
 }
 
 export async function handleLogoutRequest() {
+  showLoader();
   try {
     const response = await fetch(
       "https://authentication-service-vdxw.onrender.com/auth/logout",
@@ -59,6 +60,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   showLoader();
   const remember = localStorage.getItem("rememberMe");
   if (!remember) {
+    setCurrentRequest("logout");
     await handleLogoutRequest();
   }
 });
@@ -67,6 +69,7 @@ window.addEventListener("close", async () => {
   showLoader();
   const remember = localStorage.getItem("rememberMe");
   if (!remember) {
+    setCurrentRequest("logout");
     await handleLogoutRequest();
   }
 });

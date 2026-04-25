@@ -1,12 +1,12 @@
 import { resetInputs } from "./resetInputs.js";
 import { toggleSwitch } from "./toggleSwitch.js";
 import { formToggle } from "./formToggle.js";
-import { userLogin } from "./login.js";
-import { signUp } from "./signUp.js";
-import { forgotPass } from "./forgotPassword.js";
-import { changePassword } from "./changePassword.js";
-import { logout } from "./logout.js";
-import { hideComponent, showElement } from "./handleVisibility.js";
+import { handleLoginRequest, userLogin } from "./login.js";
+import { signUp, validateInput } from "./signUp.js";
+import { forgotPass, handleForgotPassRequest } from "./forgotPassword.js";
+import { changePassword, handleChangePassRequest } from "./changePassword.js";
+import { handleLogoutRequest, logout } from "./logout.js";
+import { hideComponent, hideElement, showElement } from "./handleVisibility.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   initialElement();
@@ -46,4 +46,39 @@ document.querySelectorAll(".toggle-eye").forEach((icon) => {
     icon.classList.toggle("fa-eye", !isHidden);
     icon.classList.toggle("fa-eye-slash", isHidden);
   });
+});
+
+let currectRequest = null;
+
+export function setCurrentRequest(requestName) {
+  currectRequest = requestName;
+}
+
+document.getElementById("retryButton").addEventListener("click", () => {
+  hideElement("serverErrorContainer");
+  switch (currectRequest) {
+    case "signUp":
+      validateInput();
+      break;
+
+    case "login":
+      handleLoginRequest();
+      break;
+
+    case "forgotPassword":
+      handleForgotPassRequest();
+      break;
+
+    case "changePassword":
+      handleChangePassRequest();
+      break;
+
+    case "logout":
+      handleLogoutRequest();
+      break;
+
+    default:
+      location.reload();
+      break;
+  }
 });

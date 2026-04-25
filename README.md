@@ -13,15 +13,13 @@ Connected to a backend that enables account creation, login/logout, password res
 
 ## Features
 
-- **Lamp Toggle Animation** to reveal/hide login content
-- **Login Form** with custom floating input fields
-- **Signup Form** with fields for personal details
-- **Forgot Password** screen with reset email flow
-- **Responsive UI** with adaptive layouts
-- **Smooth transitions & minimalistic design**
-- **No browser auto-suggest** for clean input fields
-- **Input reset functionality included**
-- Implemented a custom **500 server error** page
+- Lamp toggle animation to show/hide login
+- Login and signup forms with floating inputs
+- Forgot & change password functionality
+- Responsive and minimal UI
+- Smooth transitions
+- Input reset support
+- Custom 500 server error page
 
 ---
 
