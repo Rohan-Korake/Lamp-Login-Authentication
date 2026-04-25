@@ -27,7 +27,7 @@ export async function handleLoginRequest() {
 
   try {
     const response = await fetch(
-      "https://authentication-service-vdxyw.onrender.com/auth/login",
+      "https://authentication-service-vdxw.onrender.com/auth/login",
       {
         method: "POST",
         headers: {
