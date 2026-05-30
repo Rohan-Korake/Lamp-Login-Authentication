@@ -1,5 +1,6 @@
 import { hideElement, showElement, showError } from "./handleVisibility.js";
 import { hideLoader, setCurrentRequest, showLoader } from "./main.js";
+import { API_URL } from "./config.js";
 
 export function logout() {
   document.getElementById("logoutUser").addEventListener("click", async () => {
@@ -12,13 +13,14 @@ export function logout() {
 export async function handleLogoutRequest() {
   showLoader();
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/logout",
-      {
-        method: "POST",
-        credentials: "include",
+    const response = await fetch(`${API_URL}/auth/logout`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-    );
+    });
 
     const data = await response.json();
     hideLoader();

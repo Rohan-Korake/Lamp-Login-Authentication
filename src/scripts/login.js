@@ -4,10 +4,9 @@ import {
   hideError,
   showError,
 } from "./handleVisibility.js";
-
 import { handleLogoutRequest } from "./logout.js";
-
 import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
+import { API_URL } from "./config.js";
 
 export function userLogin() {
   document.getElementById("loginForm").addEventListener("submit", async (e) => {
@@ -23,23 +22,19 @@ export async function handleLoginRequest() {
   hideError("loginFormError");
   const userName = document.getElementById("userName").value;
   const password = document.getElementById("password").value;
-  console.log("Hello rohan");
 
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          email: userName,
-          password: password,
-        }),
+    const response = await fetch(`${API_URL}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      credentials: "include",
+      body: JSON.stringify({
+        email: userName,
+        password: password,
+      }),
+    });
 
     const body = await response.json();
     hideLoader();
@@ -67,6 +62,7 @@ export async function handleLoginRequest() {
         break;
 
       case 200:
+        localStorage.setItem("accessToken", body.accessToken);
         if (serverErrorContainer) {
           hideElement("serverErrorContainer");
         }

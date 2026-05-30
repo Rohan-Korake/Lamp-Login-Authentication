@@ -15,6 +15,7 @@ export function forgotPass() {
       handleForgotPassRequest();
     });
 }
+import { API_URL } from "./config.js";
 
 // handle forgot password request
 export async function handleForgotPassRequest() {
@@ -22,18 +23,15 @@ export async function handleForgotPassRequest() {
   const registeredEmail = document.getElementById("registeredEmail").value;
 
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/forgot-password",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: registeredEmail,
-        }),
+    const response = await fetch(`${API_URL}/auth/forgot-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        email: registeredEmail,
+      }),
+    });
 
     const data = await response.json();
     hideLoader();

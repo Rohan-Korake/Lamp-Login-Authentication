@@ -6,6 +6,7 @@ import {
 } from "./handleVisibility.js";
 import { resetInputs } from "./resetInputs.js";
 import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
+import { API_URL } from "./config.js";
 
 export function signUp() {
   document
@@ -63,20 +64,17 @@ export async function handleSignUpRquest(
   lastName,
 ) {
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: newEmail,
-          password: confirmPassword,
-          name: `${firstName.trim()} ${lastName.trim()}`,
-        }),
+    const response = await fetch(`${API_URL}/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        email: newEmail,
+        password: confirmPassword,
+        name: `${firstName.trim()} ${lastName.trim()}`,
+      }),
+    });
 
     const data = await response.json();
     hideLoader();

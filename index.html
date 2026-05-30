@@ -1,188 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in Page</title>
+    <link
+      rel="shortcut icon"
+      href="src/assets/favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log in Page</title>
-  <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
-
-<body>
-
-  <!-- login Page  -->
-  <div class="outerContainer" id="authPage">
-    <!-- lamp container  -->
-    <div class="lampOuterContainer">
-      <div class="lampInnerContainer">
-        <div class="glowState">
-          <img src="assets/glow.svg" alt="glowLamp" id="glowLamp" />
+  <body>
+    <!-- login Page  -->
+    <div class="outerContainer" id="authPage">
+      <!-- lamp container  -->
+      <div class="lampOuterContainer">
+        <div class="lampInnerContainer">
+          <div class="glowState">
+            <img src="src/assets/glow.svg" alt="glowLamp" id="glowLamp" />
+          </div>
+          <div class="unlitState">
+            <img src="src/assets/unlit.svg" alt="unlitLamp" id="unlitLamp" />
+          </div>
         </div>
-        <div class="unlitState">
-          <img src="assets/unlit.svg" alt="unlitLamp" id="unlitLamp" />
-        </div>
-      </div>
-      <div class="buttonWrapper">
-        <div class="btnBase">
-          <div class="btnSurface" id="btnSurface">
-            <div class="btnBulbContainer" id="btnState">
-              <div class="btnBulb">
-                <img src="assets/unlitBulb.svg" alt="unlitBulb" id="unlitState" />
-                <img src="assets/glowBulb.svg" alt="glowBulb" id="glowState" />
+        <div class="buttonWrapper">
+          <div class="btnBase">
+            <div class="btnSurface" id="btnSurface">
+              <div class="btnBulbContainer" id="btnState">
+                <div class="btnBulb">
+                  <img
+                    src="src/assets/unlitBulb.svg"
+                    alt="unlitBulb"
+                    id="unlitState"
+                  />
+                  <img
+                    src="src/assets/glowBulb.svg"
+                    alt="glowBulb"
+                    id="glowState"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- form container  -->
-    <div class="formOuterContainer" id="formContainer">
-      <div class="formInnerContainer">
-
-        <!-- login form  -->
-        <form id="loginForm">
-          <div class="formTitle">User Login</div>
-          <div class="form-error" id="loginFormError"></div>
-          <div class="inputField">
-            <input type="email" id="userName" required />
-            <label id="usernameLabel">username</label>
-            <i class="fa-solid fa-user user-icon"></i>
-            <div class="field-error" id="usernameError"></div>
-          </div>
-          <div class="inputField">
-            <input type="password" id="password" required />
-            <label id="passwordLabel">Password</label>
-            <i class="fa-solid fa-eye toggle-eye" role="button" data-target="password"></i>
-            <div class="field-error" id="passwordError"></div>
-          </div>
-          <div class="rememberForgotContainer">
-            <div class="rememberMeContainer">
-              <input type="checkbox" id="rememberMe" />
-              <label>Remember me</label>
+      <!-- form container  -->
+      <div class="formOuterContainer" id="formContainer">
+        <div class="formInnerContainer">
+          <!-- login form  -->
+          <form id="loginForm">
+            <div class="formTitle">User Login</div>
+            <div class="form-error" id="loginFormError"></div>
+            <div class="inputField">
+              <input type="email" id="userName" required />
+              <label id="usernameLabel">username</label>
+              <i class="fa-solid fa-user user-icon"></i>
+              <div class="field-error" id="usernameError"></div>
             </div>
-            <div class="forgotPasswordLink" id="forgotPasswordLink">
-              Forgot password?
+            <div class="inputField">
+              <input type="password" id="password" required />
+              <label id="passwordLabel">Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="password"
+              ></i>
+              <div class="field-error" id="passwordError"></div>
             </div>
-          </div>
-          <button class="form-button" id="loginButton" type="submit">
-            Log in
-          </button>
-          <div class="signUpOption">
-            <div class="signUpText">Don’t have account?</div>
-            <div class="singUplink" id="singUplink">Sign Up</div>
-          </div>
-        </form>
-
-        <!-- forgot password form  -->
-        <form id="forgotPasswordForm">
-          <div class="formTitle">Forgot Password</div>
-          <div class="form-error" id="forgotPasswordFormError"></div>
-          <div class="form-success" id="forgotPasswordFormSuccess"></div>
-          <div class="inputField">
-            <input type="email" id="registeredEmail" required />
-            <label id="registeredEmailLabel">Registered email</label>
-            <i class="fa-solid fa-user user-icon"></i>
-            <div class="field-error" id="registerEmail"></div>
-          </div>
-          <button class="form-button" type="submit">Reset Password</button>
-          <button class="form-button" id="backToLoginButton">
-            <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back to log in
-          </button>
-        </form>
-
-        <!-- Change password form  -->
-        <form id="changePasswordForm">
-          <div class="formTitle">Change Password</div>
-          <div class="form-error" id="changePasswordFormError"></div>
-          <div class="form-success" id="changePasswordFormSuccess"></div>
-          <div class="inputField">
-            <input type="email" id="userMailId" required />
-            <label id="registeredEmailLabel">Registered email</label>
-            <i class="fa-solid fa-user user-icon"></i>
-            <div class="field-error" id="userEmail"></div>
-          </div>
-          <button class="form-button" type="submit">Change Password</button>
-          <button class="form-button" id="backToHomeButton">Back To Home</button>
-        </form>
-
-        <!-- create account form  -->
-        <form id="signUpForm">
-          <div class="formTitle">Create Account</div>
-          <div class="form-error" id="signUpFormError"></div>
-          <div class="form-success" id="signUpFormSuccess"></div>
-          <div class="inputFieldContainer">
-            <div class="firstName">
-              <input type="text" id="firstName" required />
-              <label id="firstNameLabel">First Name</label>
+            <div class="rememberForgotContainer">
+              <div class="rememberMeContainer">
+                <input type="checkbox" id="rememberMe" />
+                <label>Remember me</label>
+              </div>
+              <div class="forgotPasswordLink" id="forgotPasswordLink">
+                Forgot password?
+              </div>
             </div>
-            <div class="lastName">
-              <input type="text" id="lastName" required />
-              <label id="lastNameLabel">Last Name</label>
+            <button class="form-button" id="loginButton" type="submit">
+              Log in
+            </button>
+            <div class="signUpOption">
+              <div class="signUpText">Don’t have account?</div>
+              <div class="singUplink" id="singUplink">Sign Up</div>
             </div>
-          </div>
-          <div class="inputField">
-            <input type="email" id="newEmail" required />
-            <label id="EmailAddress">Email Address</label>
-            <i class="fa-solid fa-user user-icon"></i>
-            <div class="field-error" id="newEmailError"></div>
-          </div>
-          <div class="inputField">
-            <input type="password" id="newPassword" required />
-            <label id="newPasswordLabel">Set Password</label>
-            <i class="fa-solid fa-eye toggle-eye" role="button" data-target="newPassword"></i>
-            <div class="field-error" id="setPasswordError"></div>
-          </div>
+          </form>
 
-          <div class="inputField">
-            <input type="password" id="confirmPassword" required />
-            <label id="confirmNewPasswordLabel">Confirm Password</label>
-            <i class="fa-solid fa-eye toggle-eye" role="button" data-target="confirmPassword"></i>
-            <div class="field-error" id="confirmPasswordError"></div>
-          </div>
-          <button class="form-button" type="submit">Create Account</button>
-          <div class="loginRedirectContainer">
-            <div class="AlreadyAccount">Already have an account?</div>
-            <div class="loginLinkContainer" id="loginFormLink">Login</div>
-          </div>
-        </form>
+          <!-- forgot password form  -->
+          <form id="forgotPasswordForm">
+            <div class="formTitle">Forgot Password</div>
+            <div class="form-error" id="forgotPasswordFormError"></div>
+            <div class="form-success" id="forgotPasswordFormSuccess"></div>
+            <div class="inputField">
+              <input type="email" id="registeredEmail" required />
+              <label id="registeredEmailLabel">Registered email</label>
+              <i class="fa-solid fa-user user-icon"></i>
+              <div class="field-error" id="registerEmail"></div>
+            </div>
+            <button class="form-button" type="submit">Reset Password</button>
+            <button class="form-button" id="backToLoginButton">
+              <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back
+              to log in
+            </button>
+          </form>
+
+          <!-- Change password form  -->
+          <form id="changePasswordForm">
+            <div class="formTitle">Change Password</div>
+            <div class="form-error" id="changePasswordFormError"></div>
+            <div class="form-success" id="changePasswordFormSuccess"></div>
+            <div class="inputField">
+              <input type="email" id="userMailId" required />
+              <label id="registeredEmailLabel">Registered email</label>
+              <i class="fa-solid fa-user user-icon"></i>
+              <div class="field-error" id="userEmail"></div>
+            </div>
+            <button class="form-button" type="submit">Change Password</button>
+            <button class="form-button" id="backToHomeButton">
+              Back To Home
+            </button>
+          </form>
+
+          <!-- create account form  -->
+          <form id="signUpForm">
+            <div class="formTitle">Create Account</div>
+            <div class="form-error" id="signUpFormError"></div>
+            <div class="form-success" id="signUpFormSuccess"></div>
+            <div class="inputFieldContainer">
+              <div class="firstName">
+                <input type="text" id="firstName" required />
+                <label id="firstNameLabel">First Name</label>
+              </div>
+              <div class="lastName">
+                <input type="text" id="lastName" required />
+                <label id="lastNameLabel">Last Name</label>
+              </div>
+            </div>
+            <div class="inputField">
+              <input type="email" id="newEmail" required />
+              <label id="EmailAddress">Email Address</label>
+              <i class="fa-solid fa-user user-icon"></i>
+              <div class="field-error" id="newEmailError"></div>
+            </div>
+            <div class="inputField">
+              <input type="password" id="newPassword" required />
+              <label id="newPasswordLabel">Set Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="newPassword"
+              ></i>
+              <div class="field-error" id="setPasswordError"></div>
+            </div>
+
+            <div class="inputField">
+              <input type="password" id="confirmPassword" required />
+              <label id="confirmNewPasswordLabel">Confirm Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="confirmPassword"
+              ></i>
+              <div class="field-error" id="confirmPasswordError"></div>
+            </div>
+            <button class="form-button" type="submit">Create Account</button>
+            <div class="loginRedirectContainer">
+              <div class="AlreadyAccount">Already have an account?</div>
+              <div class="loginLinkContainer" id="loginFormLink">Login</div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Welcome Page  -->
-  <div class="welcome-page" id="welcomePage">
-    <div class="success-message">
-      Welcome back! You have logged in successfully.
+    <!-- Welcome Page  -->
+    <div class="welcome-page" id="welcomePage">
+      <div class="success-message">
+        Welcome back! You have logged in successfully.
+      </div>
+      <div class="auth-option">
+        <div class="auth-button" id="changePassword">Change Password</div>
+        <div class="auth-button" id="logoutUser">Logout User</div>
+      </div>
+      <div class="operation-error" id="logOutError"></div>
     </div>
-    <div class="auth-option">
-      <div class="auth-button" id="changePassword">Change Password</div>
-      <div class="auth-button" id="logoutUser">Logout User</div>
-    </div>
-    <div class="operation-error" id="logOutError"></div>
-  </div>
 
-  <!-- loading page  -->
-  <div class="loading-page" id="loadingPage">
-    <div class="loader"><img src="./assets/loader.png" alt="loder" /></div>
-    <div class="loading-message">Please wait...</div>
-  </div>
-
-  <!-- Server Error Page  -->
-  <div class="server-error-container" id="serverErrorContainer">
-    <div class="lamp-container">
-      <div class="lamp-image"><img src="assets/disconnect.svg" alt="serverErrorImg"></div>
-      <button class="form-button" id="retryButton">Retry</button>
+    <!-- loading page  -->
+    <div class="loading-page" id="loadingPage">
+      <div class="loader">
+        <img src="./src/assets/loader.png" alt="loder" />
+      </div>
+      <div class="loading-message">Please wait...</div>
     </div>
-    <div class="error-message-container">
-      <div class="error-title">Oops! <span>Power cut<i class="fa-solid fa-bolt"></i> </span></div>
-      <div class="error-message">Our server blew a fuse. Please wait while we restore the power.</div>
-    </div>
-  </div>
-</body>
-<script src="src/main.js" type="module"></script>
 
+    <!-- Server Error Page  -->
+    <div class="server-error-container" id="serverErrorContainer">
+      <div class="lamp-container">
+        <div class="lamp-image">
+          <img src="src/assets/disconnect.svg" alt="serverErrorImg" />
+        </div>
+        <button class="form-button" id="retryButton">Retry</button>
+      </div>
+      <div class="error-message-container">
+        <div class="error-title">
+          Oops! <span>Power cut<i class="fa-solid fa-bolt"></i> </span>
+        </div>
+        <div class="error-message">
+          Our server blew a fuse. Please wait while we restore the power.
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="src/scripts/main.js" type="module"></script>
 </html>

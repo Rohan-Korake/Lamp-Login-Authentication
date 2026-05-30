@@ -1,5 +1,6 @@
 import { hideInfoFields, showError, showSuccess } from "./handleVisibility.js";
 import { hideLoader, setCurrentRequest, showLoader } from "./main.js";
+import { API_URL } from "./config.js";
 
 export function changePassword() {
   document
@@ -17,18 +18,15 @@ export async function handleChangePassRequest() {
   showLoader();
   const userMailId = document.getElementById("userMailId").value;
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/reset-password",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: userMailId,
-        }),
+    const response = await fetch(`${API_URL}/auth/reset-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        email: userMailId,
+      }),
+    });
 
     const data = await response.json();
     hideLoader();

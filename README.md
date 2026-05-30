@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/favicon.svg" width="10%" />
+  <img src="src/assets/favicon.svg" width="10%" />
 </p>
 
 # Interactive Lamp Login System
@@ -45,17 +45,17 @@ Connected to a backend that enables account creation, login/logout, password res
 ## Preview
 
 <p align="center">
-  <img src="Preview/Preview1.png" width="45%" />
-  <img src="Preview/Preview2.png" width="45%" />
+  <img src="src/Preview/Preview1.png" width="45%" />
+  <img src="src/Preview/Preview2.png" width="45%" />
 </p>
 <p align="center">
-  <img src="Preview/Preview3.png" width="45%" />
-  <img src="Preview/Preview4.png" width="45%" />
+  <img src="src/Preview/Preview3.png" width="45%" />
+  <img src="src/Preview/Preview4.png" width="45%" />
 </p>
 <p align="center">
-  <img src="Preview/Preview5.png" width="45%" />
-  <img src="Preview/Preview6.png" width="45%" />
+  <img src="src/Preview/Preview5.png" width="45%" />
+  <img src="src/Preview/Preview6.png" width="45%" />
 </p>
 <p align="center">
-  <img src="Preview/Preview7.png" width="45%" />
+  <img src="src/Preview/Preview7.png" width="45%" />
 </p>
