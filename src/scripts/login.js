@@ -111,10 +111,10 @@ let isTokenValid = false;
 // handle get me Request
 async function handleGetMeRequest() {
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/getme",
-      { method: "GET", credentials: "include" },
-    );
+    const response = await fetch(`${API_URL}/auth/current-user`, {
+      method: "POST",
+      credentials: "include",
+    });
 
     const data = await response.json();
     hideLoader();
@@ -164,10 +164,10 @@ async function updateAccessToken() {
   showLoader();
 
   try {
-    const response = await fetch(
-      "https://authentication-service-vdxw.onrender.com/auth/refresh-access-token",
-      { method: "POST", credentials: "include" },
-    );
+    const response = await fetch(`${API_URL}/auth/refresh-token`, {
+      method: "POST",
+      credentials: "include",
+    });
 
     const data = await response.json();
     hideLoader();

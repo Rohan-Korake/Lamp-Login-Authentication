@@ -16,16 +16,11 @@ export async function handleLogoutRequest() {
     const response = await fetch(`${API_URL}/auth/logout`, {
       method: "POST",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
     });
 
-    const data = await response.json();
+    const body = await response.json();
     hideLoader();
     const status = response.status;
-    const body = data;
 
     switch (status) {
       case 401:
@@ -58,23 +53,3 @@ export async function handleLogoutRequest() {
     }
   }
 }
-
-// remove cookie when page is reload and remember me is not checked
-window.addEventListener("DOMContentLoaded", async () => {
-  showLoader();
-  const remember = localStorage.getItem("rememberMe");
-  if (!remember) {
-    setCurrentRequest("logout");
-    await handleLogoutRequest();
-  }
-});
-
-// remove cookie when page is close and remember me is not checked
-window.addEventListener("close", async () => {
-  showLoader();
-  const remember = localStorage.getItem("rememberMe");
-  if (!remember) {
-    setCurrentRequest("logout");
-    await handleLogoutRequest();
-  }
-});
