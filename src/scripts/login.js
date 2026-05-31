@@ -42,7 +42,10 @@ export async function handleLoginRequest() {
 
     switch (status) {
       case 400:
-        showError("loginFormError", "Invalid email or password");
+        showError(
+          "loginFormError",
+          body.message || "Invalid email or password",
+        );
         break;
 
       case 401:
