@@ -38,6 +38,7 @@ Connected to a backend that enables account creation, login/logout, password res
 - Sign Up
 - Forgot Password
 - Change Password
+- Reset Password
 - Log out
 
 ---
@@ -45,17 +46,18 @@ Connected to a backend that enables account creation, login/logout, password res
 ## Preview
 
 <p align="center">
-  <img src="src/Preview/Preview1.png" width="45%" />
-  <img src="src/Preview/Preview2.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview1.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview2.png" width="45%" />
 </p>
 <p align="center">
-  <img src="src/Preview/Preview3.png" width="45%" />
-  <img src="src/Preview/Preview4.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview3.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview4.png" width="45%" />
 </p>
 <p align="center">
-  <img src="src/Preview/Preview5.png" width="45%" />
-  <img src="src/Preview/Preview6.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview5.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview6.png" width="45%" />
 </p>
 <p align="center">
-  <img src="src/Preview/Preview7.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview7.png" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview8.png" width="45%" />
 </p>

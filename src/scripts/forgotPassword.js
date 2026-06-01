@@ -1,7 +1,9 @@
 import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
 import {
+  hideElement,
   hideError,
   hideInfoFields,
+  showElement,
   showError,
   showSuccess,
 } from "./handleVisibility.js";
@@ -28,6 +30,7 @@ export async function handleForgotPassRequest() {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         email: registeredEmail,
       }),
@@ -47,13 +50,23 @@ export async function handleForgotPassRequest() {
         showError("forgotPasswordFormError", body.message || "Invalid input");
         break;
 
+      case 404:
+        showError(
+          "forgotPasswordFormError",
+          body.message || "User does not exists",
+        );
+        break;
+
       case 500:
         hideElement("authPage");
         showElement("serverErrorContainer");
         break;
 
       case 200:
-        showSuccess("forgotPasswordFormSuccess", "Email sent successfully.");
+        showSuccess(
+          "forgotPasswordFormSuccess",
+          body.message || "Email sent successfully.",
+        );
         break;
 
       default:

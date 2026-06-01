@@ -6,7 +6,12 @@ import {
   showElement,
 } from "./handleVisibility.js";
 import { resetInputs } from "./resetInputs.js";
-import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
+import {
+  showLoader,
+  hideLoader,
+  setCurrentRequest,
+  validatePassword,
+} from "./main.js";
 import { API_URL } from "./config.js";
 
 export function signUp() {
@@ -36,15 +41,7 @@ export async function validateInput() {
   } else {
     hideError("confirmPasswordError");
   }
-
-  let missingRequirements = [];
-  if (confirmPassword.length < 8 || confirmPassword.length > 32)
-    missingRequirements.push("8–32 characters");
-  if (!/[A-Z]/.test(confirmPassword)) missingRequirements.push("uppercase");
-  if (!/[a-z]/.test(confirmPassword)) missingRequirements.push("lowercase");
-  if (!/[0-9]/.test(confirmPassword)) missingRequirements.push("number");
-  if (!/[!@#$%^&*(),.?\":{}|<>]/.test(confirmPassword))
-    missingRequirements.push("symbol");
+  let missingRequirements = validatePassword(confirmPassword);
 
   if (missingRequirements.length > 0) {
     hideLoader();

@@ -69,6 +69,7 @@ form {
   width: 20px;
 }
 
-#changePasswordForm {
+#changePasswordForm,
+#resetPasswordForm {
   display: none;
 }

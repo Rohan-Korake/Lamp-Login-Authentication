@@ -107,8 +107,40 @@
               <i class="fa-solid fa-user user-icon"></i>
               <div class="field-error" id="registerEmail"></div>
             </div>
-            <button class="form-button" type="submit">Reset Password</button>
+            <button class="form-button" type="submit">Forgot Password</button>
             <button class="form-button" id="backToLoginButton">
+              <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back
+              to log in
+            </button>
+          </form>
+
+          <!-- Reset password form  -->
+          <form id="resetPasswordForm">
+            <div class="formTitle">Reset Password</div>
+            <div class="form-error" id="forgotPasswordFormError"></div>
+            <div class="form-success" id="forgotPasswordFormSuccess"></div>
+            <div class="inputField">
+              <input type="password" id="resetNewPassword" required />
+              <label id="resetNewPasswordLabel">New Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="resetNewPassword"
+              ></i>
+              <div class="field-error" id="resetNewPasswordError"></div>
+            </div>
+            <div class="inputField">
+              <input type="password" id="resetConfirmPassword" required />
+              <label id="resetConfirmPasswordLabel">Confirm Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="resetConfirmPassword"
+              ></i>
+              <div class="field-error" id="resetConfirmPasswordError"></div>
+            </div>
+            <button class="form-button" type="submit">Reset Password</button>
+            <button class="form-button" id="resetFormBackButton">
               <i class="fa-solid fa-arrow-left" style="color: #10161b"></i>Back
               to log in
             </button>
@@ -120,10 +152,24 @@
             <div class="form-error" id="changePasswordFormError"></div>
             <div class="form-success" id="changePasswordFormSuccess"></div>
             <div class="inputField">
-              <input type="email" id="userMailId" required />
-              <label id="registeredEmailLabel">Registered email</label>
-              <i class="fa-solid fa-user user-icon"></i>
-              <div class="field-error" id="userEmail"></div>
+              <input type="password" id="oldPassword" required />
+              <label id="oldPasswordLabel">Old Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="oldPassword"
+              ></i>
+              <div class="field-error" id="oldPasswordError"></div>
+            </div>
+            <div class="inputField">
+              <input type="password" id="newChangePassword" required />
+              <label id="newChangePasswordLabel">New Password</label>
+              <i
+                class="fa-solid fa-eye toggle-eye"
+                role="button"
+                data-target="newChangePassword"
+              ></i>
+              <div class="field-error" id="newChangePasswordError"></div>
             </div>
             <button class="form-button" type="submit">Change Password</button>
             <button class="form-button" id="backToHomeButton">
@@ -162,7 +208,6 @@
               ></i>
               <div class="field-error" id="setPasswordError"></div>
             </div>
-
             <div class="inputField">
               <input type="password" id="confirmPassword" required />
               <label id="confirmNewPasswordLabel">Confirm Password</label>

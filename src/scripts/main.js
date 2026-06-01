@@ -20,16 +20,33 @@ window.addEventListener("DOMContentLoaded", () => {
   logout();
 });
 
+// validate password
+export function validatePassword(password) {
+  let missingRequirements = [];
+  if (password.length < 8 || password.length > 32)
+    missingRequirements.push("8–32 characters");
+  if (!/[A-Z]/.test(password)) missingRequirements.push("uppercase");
+  if (!/[a-z]/.test(password)) missingRequirements.push("lowercase");
+  if (!/[0-9]/.test(password)) missingRequirements.push("number");
+  if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password))
+    missingRequirements.push("symbol");
+
+  return missingRequirements;
+}
+
+// handle initial Element visibility
 function initialElement() {
   hideComponent("welcomePage");
   showElement("loginPage");
 }
 
+// handle loader start
 export function showLoader() {
   document.getElementById("loadingPage").style.display = "flex";
   document.querySelector(".loader").classList.add("active");
 }
 
+// handle loader stop
 export function hideLoader() {
   document.getElementById("loadingPage").style.display = "none";
   document.querySelector(".loader").classList.remove("active");
@@ -50,7 +67,6 @@ document.querySelectorAll(".toggle-eye").forEach((icon) => {
 });
 
 let currectRequest = null;
-
 // update the current request
 export function setCurrentRequest(requestName) {
   currectRequest = requestName;

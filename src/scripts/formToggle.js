@@ -62,4 +62,12 @@ export function formToggle() {
     hideElement("authPage");
     showElement("welcomePage");
   });
+
+  document
+    .getElementById("resetFormBackButton")
+    .addEventListener("click", () => {
+      resetInputs();
+      hideElement("resetPasswordForm");
+      showElement("loginForm");
+    });
 }

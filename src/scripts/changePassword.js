@@ -1,5 +1,16 @@
-import { hideInfoFields, showError, showSuccess } from "./handleVisibility.js";
-import { hideLoader, setCurrentRequest, showLoader } from "./main.js";
+import {
+  hideElement,
+  hideInfoFields,
+  showElement,
+  showError,
+  showSuccess,
+} from "./handleVisibility.js";
+import {
+  hideLoader,
+  setCurrentRequest,
+  showLoader,
+  validatePassword,
+} from "./main.js";
 import { API_URL } from "./config.js";
 
 export function changePassword() {
@@ -16,15 +27,30 @@ export function changePassword() {
 // handle change password request
 export async function handleChangePassRequest() {
   showLoader();
-  const userMailId = document.getElementById("userMailId").value;
+  const oldPass = document.getElementById("oldPassword").value;
+  const newPass = document.getElementById("newChangePassword").value;
+
+  let missingRequirements = validatePassword(newPass);
+
+  if (missingRequirements.length > 0) {
+    hideLoader();
+    showError(
+      "newChangePasswordError",
+      `Password must include ${missingRequirements.join(" , ")}.`,
+    );
+    return;
+  }
+
   try {
-    const response = await fetch(`${API_URL}/auth/reset-password`, {
+    const response = await fetch(`${API_URL}/auth/change-password`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
-        email: userMailId,
+        oldPassword: oldPass,
+        newPassword: newPass,
       }),
     });
 
@@ -35,20 +61,30 @@ export async function handleChangePassRequest() {
 
     switch (status) {
       case 400:
-        showError("changePasswordFormError", "Invalid Email");
+        showError(
+          "changePasswordFormError",
+          body.message || "Invalid old Password",
+        );
         break;
 
       case 401:
-        showError("changePasswordFormError", body.message);
+        showError("changePasswordFormError", body.message || "Session expired");
+        break;
+
+      case 404:
+        showError("changePasswordFormError", body.message || "User not found");
+        break;
+
+      case 200:
+        showSuccess(
+          "changePasswordFormSuccess",
+          body.message || "Password changed successfully.",
+        );
         break;
 
       case 500:
         hideElement("authPage");
         showElement("serverErrorContainer");
-        break;
-
-      case 200:
-        showSuccess("changePasswordFormSuccess", "Email sent successfully.");
         break;
 
       default:
