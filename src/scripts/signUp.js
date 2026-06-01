@@ -3,6 +3,7 @@ import {
   hideError,
   hideElement,
   showSuccess,
+  showElement,
 } from "./handleVisibility.js";
 import { resetInputs } from "./resetInputs.js";
 import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
@@ -72,14 +73,13 @@ export async function handleSignUpRquest(
       body: JSON.stringify({
         email: newEmail,
         password: confirmPassword,
-        name: `${firstName.trim()} ${lastName.trim()}`,
+        username: `${firstName.trim()} ${lastName.trim()}`,
       }),
     });
 
-    const data = await response.json();
+    const body = await response.json();
     hideLoader();
     const status = response.status;
-    const body = data;
 
     switch (status) {
       case 400:
