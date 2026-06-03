@@ -11,9 +11,9 @@ export function formToggle() {
   }
 
   // Display the forgot password card and hide log in form
-  document
-    .getElementById("forgotPasswordLink")
-    .addEventListener("click", () => {
+  const forgotPasswordLink = document.getElementById("forgotPasswordLink");
+  if (forgotPasswordLink) {
+    forgotPasswordLink.addEventListener("click", () => {
       resetInputs();
       hideElement("loginForm");
       hideComponent("signUpForm");
@@ -21,53 +21,70 @@ export function formToggle() {
       showElement("backToLoginButton");
       showElement("forgotPasswordForm");
     });
+  }
 
   // Hide the forgot password card and display log in form
-  document.getElementById("backToLoginButton").addEventListener("click", () => {
-    resetInputs();
-    hideElement("forgotPasswordForm");
-    hideComponent("signUpForm");
-    showElement("loginForm");
-  });
+  const backToLoginButton = document.getElementById("backToLoginButton");
+  if (backToLoginButton) {
+    backToLoginButton.addEventListener("click", () => {
+      resetInputs();
+      hideElement("forgotPasswordForm");
+      hideComponent("signUpForm");
+      showElement("loginForm");
+    });
+  }
 
   //Show signup form and hide other form
-  document.getElementById("singUplink").addEventListener("click", () => {
-    resetInputs();
-    hideElement("loginForm");
-    showElement("signUpForm");
-    hideComponent("forgotPasswordForm");
-  });
+  const singUplink = document.getElementById("singUplink");
+  if (singUplink) {
+    singUplink.addEventListener("click", () => {
+      resetInputs();
+      hideElement("loginForm");
+      showElement("signUpForm");
+      hideComponent("forgotPasswordForm");
+    });
+  }
 
   //Show login form hide other form
-  document.getElementById("loginFormLink").addEventListener("click", () => {
-    resetInputs();
-    hideElement("forgotPasswordForm");
-    hideComponent("signUpForm");
-    showElement("loginForm");
-  });
+  const loginFormLink = document.getElementById("loginFormLink");
+  if (loginFormLink) {
+    loginFormLink.addEventListener("click", () => {
+      resetInputs();
+      hideElement("forgotPasswordForm");
+      hideComponent("signUpForm");
+      showElement("loginForm");
+    });
+  }
 
   //show reset password form and hide welcome page
-  document.getElementById("changePassword").addEventListener("click", () => {
-    resetInputs();
-    hideElement("welcomePage");
-    hideElement("loginForm");
-    showElement("authPage");
-    showElement("changePasswordForm");
-  });
+  const changePassword = document.getElementById("changePassword");
+  if (changePassword) {
+    changePassword.addEventListener("click", () => {
+      resetInputs();
+      hideElement("welcomePage");
+      hideElement("loginForm");
+      showElement("authPage");
+      showElement("changePasswordForm");
+    });
+  }
 
   // show welcome page and hide change password form
-  document.getElementById("backToHomeButton").addEventListener("click", () => {
-    resetInputs();
-    hideElement("changePasswordForm");
-    hideElement("authPage");
-    showElement("welcomePage");
-  });
+  const backToHomeButton = document.getElementById("backToHomeButton");
+  if (backToHomeButton) {
+    backToHomeButton.addEventListener("click", () => {
+      resetInputs();
+      hideElement("changePasswordForm");
+      hideElement("authPage");
+      showElement("welcomePage");
+    });
+  }
 
-  document
-    .getElementById("resetFormBackButton")
-    .addEventListener("click", () => {
+  const resetFormBackButton = document.getElementById("resetFormBackButton");
+  if (resetFormBackButton) {
+    resetFormBackButton.addEventListener("click", () => {
       resetInputs();
       hideElement("resetPasswordForm");
       showElement("loginForm");
     });
+  }
 }

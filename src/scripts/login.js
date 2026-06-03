@@ -9,11 +9,14 @@ import { showLoader, hideLoader, setCurrentRequest } from "./main.js";
 import { API_URL } from "./config.js";
 
 export function userLogin() {
-  document.getElementById("loginForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    setCurrentRequest("login");
-    handleLoginRequest();
-  });
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      setCurrentRequest("login");
+      await handleLoginRequest();
+    });
+  }
 }
 
 // handle login request
@@ -89,12 +92,16 @@ export async function handleLoginRequest() {
 }
 
 // handle checkbox state
-const rememberMeCheckbox = document.getElementById("rememberMe");
-rememberMeCheckbox.addEventListener("change", (e) => {
-  if (e.target.checked) {
-    localStorage.setItem("rememberMe", "true");
-  } else {
-    localStorage.removeItem("rememberMe");
+document.addEventListener("DOMContentLoaded", () => {
+  const rememberMeCheckbox = document.getElementById("rememberMe");
+  if (rememberMeCheckbox) {
+    rememberMeCheckbox.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        localStorage.setItem("rememberMe", "true");
+      } else {
+        localStorage.removeItem("rememberMe");
+      }
+    });
   }
 });
 

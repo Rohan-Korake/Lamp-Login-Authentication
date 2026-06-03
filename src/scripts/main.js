@@ -7,6 +7,7 @@ import { forgotPass, handleForgotPassRequest } from "./forgotPassword.js";
 import { changePassword, handleChangePassRequest } from "./changePassword.js";
 import { handleLogoutRequest, logout } from "./logout.js";
 import { hideComponent, hideElement, showElement } from "./handleVisibility.js";
+import { resetPassword } from "./resetPassword.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   initialElement();
@@ -18,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
   forgotPass();
   changePassword();
   logout();
+  resetPassword();
 });
 
 // validate password
@@ -42,14 +44,18 @@ function initialElement() {
 
 // handle loader start
 export function showLoader() {
-  document.getElementById("loadingPage").style.display = "flex";
-  document.querySelector(".loader").classList.add("active");
+  const loadingPage = document.getElementById("loadingPage");
+  const loader = document.querySelector(".loader");
+  if (loadingPage) loadingPage.style.display = "flex";
+  if (loader) loader.classList.add("active");
 }
 
 // handle loader stop
 export function hideLoader() {
-  document.getElementById("loadingPage").style.display = "none";
-  document.querySelector(".loader").classList.remove("active");
+  const loadingPage = document.getElementById("loadingPage");
+  const loader = document.querySelector(".loader");
+  if (loadingPage) loadingPage.style.display = "none";
+  if (loader) loader.classList.remove("active");
 }
 
 // handle eye opener event
@@ -57,6 +63,7 @@ document.querySelectorAll(".toggle-eye").forEach((icon) => {
   icon.addEventListener("click", () => {
     const targetId = icon.getAttribute("data-target");
     const input = document.getElementById(targetId);
+    if (!input) return;
 
     const isHidden = input.type === "password";
     input.type = isHidden ? "text" : "password";
@@ -73,31 +80,38 @@ export function setCurrentRequest(requestName) {
 }
 
 // handle retry API request event
-document.getElementById("retryButton").addEventListener("click", () => {
-  hideElement("serverErrorContainer");
-  switch (currectRequest) {
-    case "signUp":
-      validateInput();
-      break;
+const retryButton = document.getElementById("retryButton");
+if (retryButton) {
+  retryButton.addEventListener("click", () => {
+    hideElement("serverErrorContainer");
+    switch (currectRequest) {
+      case "signUp":
+        validateInput();
+        break;
 
-    case "login":
-      handleLoginRequest();
-      break;
+      case "login":
+        handleLoginRequest();
+        break;
 
-    case "forgotPassword":
-      handleForgotPassRequest();
-      break;
+      case "forgotPassword":
+        handleForgotPassRequest();
+        break;
 
-    case "changePassword":
-      handleChangePassRequest();
-      break;
+      case "changePassword":
+        handleChangePassRequest();
+        break;
 
-    case "logout":
-      handleLogoutRequest();
-      break;
+      case "logout":
+        handleLogoutRequest();
+        break;
 
-    default:
-      location.reload();
-      break;
-  }
-});
+      case "ResetPassword":
+        handleResetPasswordRequest();
+        break;
+
+      default:
+        location.reload();
+        break;
+    }
+  });
+}

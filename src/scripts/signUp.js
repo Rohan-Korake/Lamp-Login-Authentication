@@ -15,14 +15,15 @@ import {
 import { API_URL } from "./config.js";
 
 export function signUp() {
-  document
-    .getElementById("signUpForm")
-    .addEventListener("submit", async (e) => {
+  const signUpForm = document.getElementById("signUpForm");
+  if (signUpForm) {
+    signUpForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       hideError("signUpFormError");
       setCurrentRequest("signUp");
       validateInput();
     });
+  }
 }
 
 // validate the user input before sending to server

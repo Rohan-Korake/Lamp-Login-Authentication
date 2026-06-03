@@ -3,10 +3,13 @@ import { hideLoader, setCurrentRequest, showLoader } from "./main.js";
 import { API_URL } from "./config.js";
 
 export function logout() {
-  document.getElementById("logoutUser").addEventListener("click", async () => {
-    setCurrentRequest("logout");
-    await handleLogoutRequest();
-  });
+  const logoutUser = document.getElementById("logoutUser");
+  if (logoutUser) {
+    logoutUser.addEventListener("click", async () => {
+      setCurrentRequest("logout");
+      await handleLogoutRequest();
+    });
+  }
 }
 
 // handle logut request

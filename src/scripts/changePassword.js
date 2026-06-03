@@ -14,14 +14,15 @@ import {
 import { API_URL } from "./config.js";
 
 export function changePassword() {
-  document
-    .getElementById("changePasswordForm")
-    .addEventListener("submit", async (e) => {
+  const changePasswordForm = document.getElementById("changePasswordForm");
+  if (changePasswordForm) {
+    changePasswordForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       hideInfoFields();
       setCurrentRequest("changePassword");
       handleChangePassRequest();
     });
+  }
 }
 
 // handle change password request
@@ -54,10 +55,9 @@ export async function handleChangePassRequest() {
       }),
     });
 
-    const data = await response.json();
+    const body = await response.json();
     hideLoader();
     const status = response.status;
-    const body = data;
 
     switch (status) {
       case 400:

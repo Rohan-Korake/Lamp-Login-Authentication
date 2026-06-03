@@ -27,25 +27,34 @@ export function hideComponent(component) {
 
 export function showError(element, message) {
   const ele = document.getElementById(element);
-  ele.style.display = "flex";
-  ele.innerText = message;
+  if (ele) {
+    ele.style.display = "flex";
+    ele.innerText = message;
+  }
 }
 
 export function hideError(element) {
   const ele = document.getElementById(element);
-  ele.style.display = "none";
-  ele.innerText = "";
+  if (ele) {
+    ele.style.display = "none";
+    ele.innerText = "";
+  }
 }
 
 export function showSuccess(element, message) {
   const ele = document.getElementById(element);
-  ele.style.display = "flex";
-  ele.innerText = message;
+  if (ele) {
+    ele.style.display = "flex";
+    ele.innerText = message;
+  }
 }
 
 // reset all input feilds and error fields
 export function hideInfoFields() {
-  document.getElementById("logOutError").style.display = "none";
+  const logOutError = document.getElementById("logOutError");
+  if (logOutError) {
+    logOutError.style.display = "none";
+  }
 
   const fieldError = document.querySelectorAll(".field-error");
   fieldError.forEach((element) => {

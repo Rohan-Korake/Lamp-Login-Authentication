@@ -8,14 +8,15 @@ import {
   showSuccess,
 } from "./handleVisibility.js";
 export function forgotPass() {
-  document
-    .getElementById("forgotPasswordForm")
-    .addEventListener("submit", async (e) => {
+  const forgotPasswordForm = document.getElementById("forgotPasswordForm");
+  if (forgotPasswordForm) {
+    forgotPasswordForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       hideInfoFields();
       setCurrentRequest("forgotPassword");
       handleForgotPassRequest();
     });
+  }
 }
 import { API_URL } from "./config.js";
 
