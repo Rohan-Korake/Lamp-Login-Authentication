@@ -65,11 +65,7 @@ export async function handleResetPasswordRequest() {
       }),
     });
 
-    console.log(response);
-
     const body = await response.json();
-    console.log(body);
-
     hideLoader();
     const status = response.status;
 

@@ -1,8 +1,7 @@
 <p align="center">
   <img src="src/assets/favicon.svg" width="10%" />
 </p>
-
-# Interactive Lamp Login System
+<h1 align="center"><b>Interactive Lamp Login System</b></h1>
 
 An interactive authentication UI with a lamp-based animation that reveals login and signup forms with smooth transitions.
 
@@ -34,8 +33,10 @@ Connected to a backend that enables account creation, login/logout, password res
 
 ## Authentication Module
 
-- Login
 - Sign Up
+- Verify Email
+- Resend Email
+- Login
 - Forgot Password
 - Change Password
 - Reset Password
@@ -60,4 +61,8 @@ Connected to a backend that enables account creation, login/logout, password res
 <p align="center">
   <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview7.png" width="45%" />
   <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview8.png" width="45%" />
+</p>
+<p align="center">
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview9" width="45%" />
+  <img src="https://ik.imagekit.io/ik0myx9mu/Preview/Preview10" width="45%" />
 </p>

@@ -1,4 +1,5 @@
-.welcome-page {
+.welcome-page,
+.verify-email-page {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -13,9 +14,29 @@
   display: none;
 }
 
-.success-message {
+.response-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.success-message,
+.response-message {
   color: rgb(185, 182, 182);
   font-size: 2rem;
+  text-align: center;
+}
+
+.success-icon i {
+  font-size: 2rem;
+}
+
+.response-submessage {
+  color: rgba(185, 182, 182, 0.739);
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -34,7 +55,21 @@
     flex-direction: column;
   }
 
-  .success-message {
+  .success-message,
+  .response-message {
     font-size: 1rem;
   }
+
+  .response-submessage {
+    font-size: 0.7rem;
+  }
+
+  .success-icon i {
+    font-size: 1.2rem;
+  }
+}
+
+#resendEmail,
+#goTOLogin {
+  display: none;
 }
